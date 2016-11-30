@@ -34,6 +34,7 @@ a:hover,a:focus{color:#415ce1;}
 html{font-size:14px;}
 body, input[type=text], input[type=tel], input[type=url], input[type=search], input[type=password], seclect, textarea
 {font:1em/1.3 arial, Malgun Gothic, "맑은고딕", gulim, "굴림", dotum, "돋움", san-serif; color:#333;}
+input[type=submit]{cursor:pointer;}
 h1, h2, h3, h4, h5, h6, strong, em, address{font-size:100%; font-weight:normal; font-style:normal; }
 .blind, legend{position:absolute;left:-9999px;}
 .clearFix:after{

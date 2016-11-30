@@ -1,13 +1,44 @@
 <? include "inc/top.html"; ?>
 	<title>SLRCLUB, 디지털 사진가를 위한 커뮤니티</title>
 	<link rel="stylesheet" type="text/css" href="css/login.css" media="all">
+	<script type="text/javascript">
+			window.onload = function (){
+				var member_f = document.querySelector("#member_f");
+
+				function regMessage(m1,m2){
+				alert(m1);
+				m2.value = "";
+				m2.focus();
+				}
+				var chkMember = function(e){
+					e.preventDefault();
+					var ts = this;
+					var user_id = ts.user_id;
+					var reg_id = /^[a-z]{1}\w{4,11}$/g;
+					var result_id = reg_id.exec(user_id.value);
+					if(result_id == null){
+						regMessage("잘못된 아이디입니다.", user_id);	
+						return false;
+					}
+					var user_pw = ts.user_pw;
+					var reg_pw = /^\w{7,11}[!-)]{1}$/g;
+					var result_pw = reg_pw.exec(user_pw.value);
+					if(result_pw == null){
+						regMessage("잘못된 비밀번호 형식입니다.\n 반드시 마지막엔 특수문자를 포함시켜야 합니다.", user_pw);
+						return false;
+					}
+				ts.submit();
+				}
+				member_f.onsubmit = chkMember;
+			}
+	</script>
  
  <body>
   <div id="wrap">
   	<? include "./inc/header.html"; ?>
   	<div id="container" class="grid">
   		<h3 class="tit_1">SLRCLUB LOGIN</h3>
-  		<form action="#" method="post">
+  		<form action="#" method="get" id="member_f">
   			<fieldset>
   				<legend>회원 로그인</legend>
 				<div>
